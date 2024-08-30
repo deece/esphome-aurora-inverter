@@ -16,6 +16,14 @@ wifi:
   ssid: SSID
   password: ""
 
+#mqtt:
+#  broker: mqtt.lan
+#  username: mqttuser
+#  password: mqttpass
+#  discovery: false
+#  topic_prefix: null
+#  log_topic: null
+
 captive_portal:
 logger:
 api:
@@ -148,6 +156,12 @@ sensor:
         icon: "mdi:lightning-bolt-outline"
         device_class: voltage
         state_class: measurement
+#        on_value:
+#            then:
+#              - mqtt.publish:
+#                  topic: "emon/aurora/v_in_1"
+#                  payload: !lambda |-
+#                    return to_string(id(v_in_1).state);
 
       - name: v_in_2
         id: v_in_2
@@ -156,6 +170,12 @@ sensor:
         icon: "mdi:lightning-bolt-outline"
         device_class: voltage
         state_class: measurement
+#        on_value:
+#            then:
+#              - mqtt.publish:
+#                  topic: "emon/aurora/v_in_2"
+#                  payload: !lambda |-
+#                    return to_string(id(v_in_2).state);
 
       - name: i_in_1
         id: i_in_1
@@ -164,6 +184,12 @@ sensor:
         icon: "mdi:current-ac"
         device_class: current
         state_class: measurement
+#        on_value:
+#            then:
+#              - mqtt.publish:
+#                  topic: "emon/aurora/i_in_1"
+#                  payload: !lambda |-
+#                    return to_string(id(i_in_1).state);
 
       - name: i_in_2
         id: i_in_2
@@ -172,6 +198,12 @@ sensor:
         icon: "mdi:current-ac"
         device_class: current
         state_class: measurement
+#        on_value:
+#            then:
+#              - mqtt.publish:
+#                  topic: "emon/aurora/i_in_2"
+#                  payload: !lambda |-
+#                    return to_string(id(i_in_2).state);
 
       - name: power_in_1
         id: power_in_1
@@ -180,6 +212,12 @@ sensor:
         icon: "mdi:solar-power"
         device_class: power
         state_class: measurement
+#        on_value:
+#            then:
+#              - mqtt.publish:
+#                  topic: "emon/aurora/power_in_1"
+#                  payload: !lambda |-
+#                    return to_string(id(power_in_1).state);
 
       - name: power_in_2
         id: power_in_2
@@ -188,6 +226,12 @@ sensor:
         icon: "mdi:solar-power"
         device_class: power
         state_class: measurement
+#        on_value:
+#            then:
+#              - mqtt.publish:
+#                  topic: "emon/aurora/power_in_2"
+#                  payload: !lambda |-
+#                    return to_string(id(power_in_2).state);
 
       - name: power_in_total
         id: power_in_total
@@ -196,6 +240,12 @@ sensor:
         icon: "mdi:solar-power"
         device_class: power
         state_class: measurement
+#        on_value:
+#            then:
+#              - mqtt.publish:
+#                  topic: "emon/aurora/power_in_total"
+#                  payload: !lambda |-
+#                    return to_string(id(power_in_total).state);
 
       - name: power_peak_today
         id: power_peak_today
@@ -204,6 +254,12 @@ sensor:
         icon: "mdi:solar-power"
         device_class: power
         state_class: measurement
+#        on_value:
+#            then:
+#              - mqtt.publish:
+#                  topic: "emon/aurora/power_peak_today"
+#                  payload: !lambda |-
+#                    return to_string(id(power_peak_today).state);
 
       - name: power_peak_max
         id: power_peak_max
@@ -212,6 +268,12 @@ sensor:
         icon: "mdi:solar-power"
         device_class: power
         state_class: measurement
+#        on_value:
+#            then:
+#              - mqtt.publish:
+#                  topic: "emon/aurora/power_peak_max"
+#                  payload: !lambda |-
+#                    return to_string(id(power_peak_max).state);
 
       - name: inverter_temp
         id: inverter_temp
@@ -220,6 +282,12 @@ sensor:
         icon: "mdi:thermometer"
         device_class: temperature
         state_class: measurement
+#        on_value:
+#            then:
+#              - mqtt.publish:
+#                  topic: "emon/aurora/inverter_temp"
+#                  payload: !lambda |-
+#                    return to_string(id(inverter_temp).state);
 
       - name: booster_temp
         id: booster_temp
@@ -228,6 +296,12 @@ sensor:
         icon: "mdi:thermometer"
         device_class: temperature
         state_class: measurement
+#        on_value:
+#            then:
+#              - mqtt.publish:
+#                  topic: "emon/aurora/booster_temp"
+#                  payload: !lambda |-
+#                    return to_string(id(booster_temp).state);
 
       - name: cumulated_energy_today
         id: cumulated_energy_today
@@ -236,6 +310,12 @@ sensor:
         icon: "mdi:car-battery"
         device_class: energy
         state_class: total_increasing
+#        on_value:
+#            then:
+#              - mqtt.publish:
+#                  topic: "emon/aurora/cumulated_energy_today"
+#                  payload: !lambda |-
+#                    return to_string(id(cumulated_energy_today).state);
 
       - name: cumulated_energy_week
         id: cumulated_energy_week
@@ -244,6 +324,12 @@ sensor:
         icon: "mdi:car-battery"
         device_class: energy
         state_class: total_increasing
+#        on_value:
+#            then:
+#              - mqtt.publish:
+#                  topic: "emon/aurora/cumulated_energy_week"
+#                  payload: !lambda |-
+#                    return to_string(id(cumulated_energy_week).state);
 
       - name: cumulated_energy_month
         id: cumulated_energy_month
@@ -252,6 +338,12 @@ sensor:
         icon: "mdi:car-battery"
         device_class: energy
         state_class: total_increasing
+#        on_value:
+#            then:
+#              - mqtt.publish:
+#                  topic: "emon/aurora/cumulated_energy_month"
+#                  payload: !lambda |-
+#                    return to_string(id(cumulated_energy_month).state);
 
       - name: cumulated_energy_year
         id: cumulated_energy_year
@@ -260,6 +352,12 @@ sensor:
         icon: "mdi:car-battery"
         device_class: energy
         state_class: total_increasing
+#        on_value:
+#            then:
+#              - mqtt.publish:
+#                  topic: "emon/aurora/cumulated_energy_year"
+#                  payload: !lambda |-
+#                    return to_string(id(cumulated_energy_year).state);
 
       - name: cumulated_energy_total
         id: cumulated_energy_total
@@ -268,6 +366,12 @@ sensor:
         icon: "mdi:car-battery"
         device_class: energy
         state_class: total_increasing
+#        on_value:
+#            then:
+#              - mqtt.publish:
+#                  topic: "emon/aurora/cumulated_energy_total"
+#                  payload: !lambda |-
+#                    return to_string(id(cumulated_energy_total).state);
 
       - name: Grid Voltage
         id: grid_voltage
@@ -276,6 +380,12 @@ sensor:
         icon: "mdi:flash"
         device_class: voltage
         state_class: measurement
+#        on_value:
+#            then:
+#              - mqtt.publish:
+#                  topic: "emon/aurora/grid_voltage"
+#                  payload: !lambda |-
+#                    return to_string(id(grid_voltage).state);
 
       - name: Grid Current
         id: grid_current
@@ -284,6 +394,12 @@ sensor:
         icon: "mdi:current-ac"
         device_class: current
         state_class: measurement
+#        on_value:
+#            then:
+#              - mqtt.publish:
+#                  topic: "emon/aurora/grid_current"
+#                  payload: !lambda |-
+#                    return to_string(id(grid_current).state);
 
       - name: Grid Power
         id: grid_power
@@ -292,6 +408,12 @@ sensor:
         icon: "mdi:flash"
         device_class: power
         state_class: measurement
+#        on_value:
+#            then:
+#              - mqtt.publish:
+#                  topic: "emon/aurora/grid_power"
+#                  payload: !lambda |-
+#                    return to_string(id(grid_power).state);
 
       - name: Frequency
         id: frequency
@@ -300,6 +422,12 @@ sensor:
         icon: "mdi:sine-wave"
         device_class: frequency
         state_class: measurement
+#        on_value:
+#            then:
+#              - mqtt.publish:
+#                  topic: "emon/aurora/frequency"
+#                  payload: !lambda |-
+#                    return to_string(id(frequency).state);
 
       - name: Bulk Voltage
         id: v_bulk
@@ -308,6 +436,12 @@ sensor:
         icon: "mdi:flash"
         device_class: voltage
         state_class: measurement
+#        on_value:
+#            then:
+#              - mqtt.publish:
+#                  topic: "emon/aurora/v_bulk"
+#                  payload: !lambda |-
+#                    return to_string(id(v_bulk).state);
 
       - name: DC-DC Grid Voltage
         id: dc_dc_grid_voltage
@@ -316,6 +450,12 @@ sensor:
         icon: "mdi:flash"
         device_class: voltage
         state_class: measurement
+#        on_value:
+#            then:
+#              - mqtt.publish:
+#                  topic: "emon/aurora/dc_dc_grid_voltage"
+#                  payload: !lambda |-
+#                    return to_string(id(dc_dc_grid_voltage).state);
 
       - name: DC-DC Grid Frequency
         id: dc_dc_grid_frequency
@@ -324,6 +464,12 @@ sensor:
         icon: "mdi:sine-wave"
         device_class: frequency
         state_class: measurement
+#        on_value:
+#            then:
+#              - mqtt.publish:
+#                  topic: "emon/aurora/dc_dc_grid_frequency"
+#                  payload: !lambda |-
+#                    return to_string(id(dc_dc_grid_frequency).state);
 
       - name: Isolation Resistance
         id: isolation_resistance
@@ -332,6 +478,12 @@ sensor:
         icon: "mdi:resistor"
         device_class: voltage
         state_class: measurement
+#        on_value:
+#            then:
+#              - mqtt.publish:
+#                  topic: "emon/aurora/isolation_resistance"
+#                  payload: !lambda |-
+#                    return to_string(id(isolation_resistance).state);
 
       - name: DC-DC V Bulk
         id: dc_dc_v_bulk
@@ -340,6 +492,12 @@ sensor:
         icon: "mdi:flash"
         device_class: voltage
         state_class: measurement
+#        on_value:
+#            then:
+#              - mqtt.publish:
+#                  topic: "emon/aurora/dc_dc_v_bulk"
+#                  payload: !lambda |-
+#                    return to_string(id(dc_dc_v_bulk).state);
 
       - name: Average Grid Voltage
         id: average_grid_voltage
@@ -348,6 +506,12 @@ sensor:
         icon: "mdi:flash"
         device_class: voltage
         state_class: measurement
+#        on_value:
+#            then:
+#              - mqtt.publish:
+#                  topic: "emon/aurora/average_grid_voltage"
+#                  payload: !lambda |-
+#                    return to_string(id(average_grid_voltage).state);
 
       - name: Bulk Mid Voltage
         id: v_bulk_mid
@@ -356,6 +520,12 @@ sensor:
         icon: "mdi:flash"
         device_class: voltage
         state_class: measurement
+#        on_value:
+#            then:
+#              - mqtt.publish:
+#                  topic: "emon/aurora/v_bulk_mid"
+#                  payload: !lambda |-
+#                    return to_string(id(v_bulk_mid).state);
 
       - name: Grid Voltage Neutral
         id: grid_voltage_neutral
@@ -364,6 +534,12 @@ sensor:
         icon: "mdi:flash"
         device_class: voltage
         state_class: measurement
+#        on_value:
+#            then:
+#              - mqtt.publish:
+#                  topic: "emon/aurora/grid_voltage_neutral"
+#                  payload: !lambda |-
+#                    return to_string(id(grid_voltage_neutral).state);
 
       - name: Wind Generator Frequency
         id: wind_generator_frequency
@@ -372,6 +548,12 @@ sensor:
         icon: "mdi:sine-wave"
         device_class: frequency
         state_class: measurement
+#        on_value:
+#            then:
+#              - mqtt.publish:
+#                  topic: "emon/aurora/wind_generator_frequency"
+#                  payload: !lambda |-
+#                    return to_string(id(wind_generator_frequency).state);
 
       - name: Grid Voltage Neutral Phase
         id: grid_voltage_neutral_phase
@@ -380,6 +562,12 @@ sensor:
         icon: "mdi:flash"
         device_class: voltage
         state_class: measurement
+#        on_value:
+#            then:
+#              - mqtt.publish:
+#                  topic: "emon/aurora/grid_voltage_neutral_phase"
+#                  payload: !lambda |-
+#                    return to_string(id(grid_voltage_neutral_phase).state);
 
       - name: Grid Current Phase R
         id: grid_current_phase_r
@@ -388,6 +576,12 @@ sensor:
         icon: "mdi:current-ac"
         device_class: current
         state_class: measurement
+#        on_value:
+#            then:
+#              - mqtt.publish:
+#                  topic: "emon/aurora/grid_current_phase_r"
+#                  payload: !lambda |-
+#                    return to_string(id(grid_current_phase_r).state);
 
       - name: Grid Current Phase S
         id: grid_current_phase_s
@@ -396,6 +590,12 @@ sensor:
         icon: "mdi:current-ac"
         device_class: current
         state_class: measurement
+#        on_value:
+#            then:
+#              - mqtt.publish:
+#                  topic: "emon/aurora/grid_current_phase_s"
+#                  payload: !lambda |-
+#                    return to_string(id(grid_current_phase_s).state);
 
       - name: Grid Current Phase T
         id: grid_current_phase_t
@@ -404,6 +604,12 @@ sensor:
         icon: "mdi:current-ac"
         device_class: current
         state_class: measurement
+#        on_value:
+#            then:
+#              - mqtt.publish:
+#                  topic: "emon/aurora/grid_current_phase_t"
+#                  payload: !lambda |-
+#                    return to_string(id(grid_current_phase_t).state);
 
       - name: Frequency Phase R
         id: frequency_phase_r
@@ -412,6 +618,12 @@ sensor:
         icon: "mdi:sine-wave"
         device_class: frequency
         state_class: measurement
+#        on_value:
+#            then:
+#              - mqtt.publish:
+#                  topic: "emon/aurora/frequency_phase_r"
+#                  payload: !lambda |-
+#                    return to_string(id(frequency_phase_r).state);
 
       - name: Frequency Phase S
         id: frequency_phase_s
@@ -420,6 +632,12 @@ sensor:
         icon: "mdi:sine-wave"
         device_class: frequency
         state_class: measurement
+#        on_value:
+#            then:
+#              - mqtt.publish:
+#                  topic: "emon/aurora/frequency_phase_s"
+#                  payload: !lambda |-
+#                    return to_string(id(frequency_phase_s).state);
 
       - name: Frequency Phase T
         id: frequency_phase_t
@@ -428,6 +646,12 @@ sensor:
         icon: "mdi:sine-wave"
         device_class: frequency
         state_class: measurement
+#        on_value:
+#            then:
+#              - mqtt.publish:
+#                  topic: "emon/aurora/frequency_phase_t"
+#                  payload: !lambda |-
+#                    return to_string(id(frequency_phase_t).state);
 
       - name: Bulk Voltage Positive
         id: v_bulk_positive
@@ -436,6 +660,12 @@ sensor:
         icon: "mdi:flash"
         device_class: voltage
         state_class: measurement
+#        on_value:
+#            then:
+#              - mqtt.publish:
+#                  topic: "emon/aurora/v_bulk_positive"
+#                  payload: !lambda |-
+#                    return to_string(id(v_bulk_positive).state);
 
       - name: Bulk Voltage Negative
         id: v_bulk_negative
@@ -443,6 +673,13 @@ sensor:
         accuracy_decimals: 2
         icon: "mdi:flash"
         device_class: voltage
+        state_class: measurement
+#        on_value:
+#            then:
+#              - mqtt.publish:
+#                  topic: "emon/aurora/v_bulk_negative"
+#                  payload: !lambda |-
+#                    return to_string(id(v_bulk_negative).state);
 
       - name: Temperature Supervisor
         id: temperature_supervisor
@@ -451,6 +688,12 @@ sensor:
         icon: "mdi:thermometer"
         device_class: temperature
         state_class: measurement
+#        on_value:
+#            then:
+#              - mqtt.publish:
+#                  topic: "emon/aurora/temperature_supervisor"
+#                  payload: !lambda |-
+#                    return to_string(id(temperature_supervisor).state);
 
       - name: Temperature Alim
         id: temperature_alim
@@ -459,6 +702,12 @@ sensor:
         icon: "mdi:thermometer"
         device_class: temperature
         state_class: measurement
+#        on_value:
+#            then:
+#              - mqtt.publish:
+#                  topic: "emon/aurora/temperature_alim"
+#                  payload: !lambda |-
+#                    return to_string(id(temperature_alim).state);
 
       - name: Temperature Heat Sink
         id: temperature_heat_sink
@@ -467,6 +716,12 @@ sensor:
         icon: "mdi:thermometer"
         device_class: temperature
         state_class: measurement
+#        on_value:
+#            then:
+#              - mqtt.publish:
+#                  topic: "emon/aurora/temperature_heat_sink"
+#                  payload: !lambda |-
+#                    return to_string(id(temperature_heat_sink).state);
 
       - name: Temperature 1
         id: temperature_1
@@ -475,6 +730,12 @@ sensor:
         icon: "mdi:thermometer"
         device_class: temperature
         state_class: measurement
+#        on_value:
+#            then:
+#              - mqtt.publish:
+#                  topic: "emon/aurora/temperature_1"
+#                  payload: !lambda |-
+#                    return to_string(id(temperature_1).state);
 
       - name: Temperature 2
         id: temperature_2
@@ -483,6 +744,12 @@ sensor:
         icon: "mdi:thermometer"
         device_class: temperature
         state_class: measurement
+#        on_value:
+#            then:
+#              - mqtt.publish:
+#                  topic: "emon/aurora/temperature_2"
+#                  payload: !lambda |-
+#                    return to_string(id(temperature_2).state);
 
       - name: Temperature 3
         id: temperature_3
@@ -491,6 +758,12 @@ sensor:
         icon: "mdi:thermometer"
         device_class: temperature
         state_class: measurement
+#        on_value:
+#            then:
+#              - mqtt.publish:
+#                  topic: "emon/aurora/temperature_3"
+#                  payload: !lambda |-
+#                    return to_string(id(temperature_3).state);
 
       - name: Fan Speed 1
         id: fan_speed_1
@@ -499,6 +772,12 @@ sensor:
         icon: "mdi:fan"
         device_class: speed
         state_class: measurement
+#        on_value:
+#            then:
+#              - mqtt.publish:
+#                  topic: "emon/aurora/fan_speed_1"
+#                  payload: !lambda |-
+#                    return to_string(id(fan_speed_1).state);
 
       - name: Fan Speed 2
         id: fan_speed_2
@@ -507,6 +786,12 @@ sensor:
         icon: "mdi:fan"
         device_class: speed
         state_class: measurement
+#        on_value:
+#            then:
+#              - mqtt.publish:
+#                  topic: "emon/aurora/fan_speed_2"
+#                  payload: !lambda |-
+#                    return to_string(id(fan_speed_2).state);
 
       - name: Fan Speed 3
         id: fan_speed_3
@@ -515,6 +800,12 @@ sensor:
         icon: "mdi:fan"
         device_class: speed
         state_class: measurement
+#        on_value:
+#            then:
+#              - mqtt.publish:
+#                  topic: "emon/aurora/fan_speed_3"
+#                  payload: !lambda |-
+#                    return to_string(id(fan_speed_3).state);
 
       - name: Fan Speed 4
         id: fan_speed_4
@@ -523,6 +814,12 @@ sensor:
         icon: "mdi:fan"
         device_class: speed
         state_class: measurement
+#        on_value:
+#            then:
+#              - mqtt.publish:
+#                  topic: "emon/aurora/fan_speed_4"
+#                  payload: !lambda |-
+#                    return to_string(id(fan_speed_4).state);
 
       - name: Fan Speed 5
         id: fan_speed_5
@@ -531,6 +828,12 @@ sensor:
         icon: "mdi:fan"
         device_class: speed
         state_class: measurement
+#        on_value:
+#            then:
+#              - mqtt.publish:
+#                  topic: "emon/aurora/fan_speed_5"
+#                  payload: !lambda |-
+#                    return to_string(id(fan_speed_5).state);
 
       - name: Power Saturation Limit
         id: power_saturation_limit
@@ -539,6 +842,12 @@ sensor:
         icon: "mdi:flash"
         device_class: power
         state_class: measurement
+#        on_value:
+#            then:
+#              - mqtt.publish:
+#                  topic: "emon/aurora/power_saturation_limit"
+#                  payload: !lambda |-
+#                    return to_string(id(power_saturation_limit).state);
 
       - name: Panel Micro Voltage
         id: v_panel_micro
@@ -547,6 +856,12 @@ sensor:
         icon: "mdi:flash"
         device_class: voltage
         state_class: measurement
+#        on_value:
+#            then:
+#              - mqtt.publish:
+#                  topic: "emon/aurora/v_panel_micro"
+#                  payload: !lambda |-
+#                    return to_string(id(v_panel_micro).state);
 
       - name: Grid Voltage Phase R
         id: grid_voltage_phase_r
@@ -555,6 +870,12 @@ sensor:
         icon: "mdi:flash"
         device_class: voltage
         state_class: measurement
+#        on_value:
+#            then:
+#              - mqtt.publish:
+#                  topic: "emon/aurora/grid_voltage_phase_r"
+#                  payload: !lambda |-
+#                    return to_string(id(grid_voltage_phase_r).state);
 
       - name: Grid Voltage Phase S
         id: grid_voltage_phase_s
@@ -563,6 +884,12 @@ sensor:
         icon: "mdi:flash"
         device_class: voltage
         state_class: measurement
+#        on_value:
+#            then:
+#              - mqtt.publish:
+#                  topic: "emon/aurora/grid_voltage_phase_s"
+#                  payload: !lambda |-
+#                    return to_string(id(grid_voltage_phase_s).state);
 
       - name: Grid Voltage Phase T
         id: grid_voltage_phase_t
@@ -571,6 +898,12 @@ sensor:
         icon: "mdi:flash"
         device_class: voltage
         state_class: measurement
+#        on_value:
+#            then:
+#              - mqtt.publish:
+#                  topic: "emon/aurora/grid_voltage_phase_t"
+#                  payload: !lambda |-
+#                    return to_string(id(grid_voltage_phase_t).state);
 
 text_sensor:
   - platform: custom

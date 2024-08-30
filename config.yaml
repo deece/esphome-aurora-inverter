@@ -149,7 +149,7 @@ sensor:
         monitor->grid_voltage_phase_s,
       };
     sensors:
-      - name: v_in_1
+      - name: PV1 Voltage
         id: v_in_1
         unit_of_measurement: V
         accuracy_decimals: 2
@@ -163,7 +163,7 @@ sensor:
 #                  payload: !lambda |-
 #                    return to_string(id(v_in_1).state);
 
-      - name: v_in_2
+      - name: PV2 Voltage
         id: v_in_2
         unit_of_measurement: V
         accuracy_decimals: 2
@@ -177,7 +177,7 @@ sensor:
 #                  payload: !lambda |-
 #                    return to_string(id(v_in_2).state);
 
-      - name: i_in_1
+      - name: PV1 Current
         id: i_in_1
         unit_of_measurement: A
         accuracy_decimals: 2
@@ -191,7 +191,7 @@ sensor:
 #                  payload: !lambda |-
 #                    return to_string(id(i_in_1).state);
 
-      - name: i_in_2
+      - name: PV2 Current
         id: i_in_2
         unit_of_measurement: A
         accuracy_decimals: 2
@@ -205,7 +205,7 @@ sensor:
 #                  payload: !lambda |-
 #                    return to_string(id(i_in_2).state);
 
-      - name: power_in_1
+      - name: PV1 Power
         id: power_in_1
         unit_of_measurement: W
         accuracy_decimals: 0
@@ -219,7 +219,7 @@ sensor:
 #                  payload: !lambda |-
 #                    return to_string(id(power_in_1).state);
 
-      - name: power_in_2
+      - name: PV2 Power
         id: power_in_2
         unit_of_measurement: W
         accuracy_decimals: 0
@@ -233,7 +233,7 @@ sensor:
 #                  payload: !lambda |-
 #                    return to_string(id(power_in_2).state);
 
-      - name: power_in_total
+      - name: Total Power In
         id: power_in_total
         unit_of_measurement: W
         accuracy_decimals: 0
@@ -247,7 +247,7 @@ sensor:
 #                  payload: !lambda |-
 #                    return to_string(id(power_in_total).state);
 
-      - name: power_peak_today
+      - name: Peak Power Today
         id: power_peak_today
         unit_of_measurement: W
         accuracy_decimals: 0
@@ -261,7 +261,7 @@ sensor:
 #                  payload: !lambda |-
 #                    return to_string(id(power_peak_today).state);
 
-      - name: power_peak_max
+      - name: Peak Power Max
         id: power_peak_max
         unit_of_measurement: W
         accuracy_decimals: 0
@@ -275,7 +275,7 @@ sensor:
 #                  payload: !lambda |-
 #                    return to_string(id(power_peak_max).state);
 
-      - name: inverter_temp
+      - name: Inverter Temperature
         id: inverter_temp
         unit_of_measurement: "°C"
         accuracy_decimals: 2
@@ -289,7 +289,7 @@ sensor:
 #                  payload: !lambda |-
 #                    return to_string(id(inverter_temp).state);
 
-      - name: booster_temp
+      - name: Booster Temperature
         id: booster_temp
         unit_of_measurement: "°C"
         accuracy_decimals: 2
@@ -303,7 +303,7 @@ sensor:
 #                  payload: !lambda |-
 #                    return to_string(id(booster_temp).state);
 
-      - name: cumulated_energy_today
+      - name: Energy Today
         id: cumulated_energy_today
         unit_of_measurement: "Wh"
         accuracy_decimals: 0
@@ -317,7 +317,7 @@ sensor:
 #                  payload: !lambda |-
 #                    return to_string(id(cumulated_energy_today).state);
 
-      - name: cumulated_energy_week
+      - name: Energy This Week
         id: cumulated_energy_week
         unit_of_measurement: "Wh"
         accuracy_decimals: 0
@@ -331,7 +331,7 @@ sensor:
 #                  payload: !lambda |-
 #                    return to_string(id(cumulated_energy_week).state);
 
-      - name: cumulated_energy_month
+      - name: Energy This Month
         id: cumulated_energy_month
         unit_of_measurement: "Wh"
         accuracy_decimals: 0
@@ -345,7 +345,7 @@ sensor:
 #                  payload: !lambda |-
 #                    return to_string(id(cumulated_energy_month).state);
 
-      - name: cumulated_energy_year
+      - name: Energy This Year
         id: cumulated_energy_year
         unit_of_measurement: "Wh"
         accuracy_decimals: 0
@@ -359,7 +359,7 @@ sensor:
 #                  payload: !lambda |-
 #                    return to_string(id(cumulated_energy_year).state);
 
-      - name: cumulated_energy_total
+      - name: Energy All Time
         id: cumulated_energy_total
         unit_of_measurement: "Wh"
         accuracy_decimals: 0

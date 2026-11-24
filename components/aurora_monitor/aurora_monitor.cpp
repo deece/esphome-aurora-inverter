@@ -1,6 +1,7 @@
 // aurora_monitor.cpp
 #include "aurora_monitor.h"
 #include "esphome/core/log.h"
+#include "ABBAuroraStrings.h"
 
 #if defined(USE_ESP32)
 #include "soc/soc_caps.h"
@@ -49,6 +50,13 @@ void AuroraMonitor::setup() {
 }
 
 void AuroraMonitor::update() {
+  // One state request (command 50) per poll serves every state/alarm text sensor
+  bool need_state = false;
+  for (auto *s : this->text_sensors_)
+    if (s->type >= GLOBAL_STATE)
+      need_state = true;
+  bool state_ok = need_state && this->inverter_->ReadState();
+
   for (auto *s : this->text_sensors_) {
     enum INFO_TYPE type = s->type;
     text_sensor::TextSensor *sensor = s->sensor;    
@@ -68,6 +76,26 @@ void AuroraMonitor::update() {
     case FIRMWARE_RELEASE:
       if (sensor->get_state().empty() && this->inverter_->ReadFirmwareRelease())
         sensor->publish_state(this->inverter_->FirmwareRelease.Release.c_str());
+      break;
+    case GLOBAL_STATE:
+      if (state_ok)
+        sensor->publish_state(ABBAuroraStrings::GlobalState(this->inverter_->State.GlobalState).c_str());
+      break;
+    case INVERTER_STATE:
+      if (state_ok)
+        sensor->publish_state(ABBAuroraStrings::InverterState(this->inverter_->State.InverterState).c_str());
+      break;
+    case DCDC1_STATE:
+      if (state_ok)
+        sensor->publish_state(ABBAuroraStrings::DcDcState(this->inverter_->State.Channel1State).c_str());
+      break;
+    case DCDC2_STATE:
+      if (state_ok)
+        sensor->publish_state(ABBAuroraStrings::DcDcState(this->inverter_->State.Channel2State).c_str());
+      break;
+    case ALARM_STATE:
+      if (state_ok)
+        sensor->publish_state(ABBAuroraStrings::AlarmState(this->inverter_->State.AlarmState).c_str());
       break;
     default:
       break;

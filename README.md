@@ -40,6 +40,17 @@ This Inverter Monitor exploits the communication library to expose some of the a
 More sensors can be created based on the [DSP_VALUE_TYPE](./ABBAuroraEnums.h#L5) enum values.
 
 An additional text_sensor named `connection_status` is exposed to monitor the connection between the ESP and the inverter.
+
+The inverter state can also be exposed as text sensors, read with a single state request (command 50) per poll:
+
+| `info_type` | Content |
+|---|---|
+| `GLOBAL_STATE` | Global state of the inverter (e.g. `Run`, `Wait Sun / Grid`, `Ground Fault`) |
+| `INVERTER_STATE` | State of the DC/AC stage |
+| `DCDC1_STATE` / `DCDC2_STATE` | State of each DC/DC input channel |
+| `ALARM_STATE` | Current alarm (`No Alarm` when everything is fine) |
+
+These sensors are only updated when the inverter answers, so they keep their last value while it is asleep.
 <br/><br/>
 
 ## Building and Flashing 

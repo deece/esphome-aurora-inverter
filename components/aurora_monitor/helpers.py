@@ -33,6 +33,11 @@ INFO_TYPES = [
     'SYSTEM_PN',
     'SYSTEM_SERIAL_NUMBER',
     'FIRMWARE_RELEASE',
+    'GLOBAL_STATE',
+    'INVERTER_STATE',
+    'DCDC1_STATE',
+    'DCDC2_STATE',
+    'ALARM_STATE',
 ]
 
 global_ns = cg.global_ns

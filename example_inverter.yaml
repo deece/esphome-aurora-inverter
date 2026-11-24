@@ -277,4 +277,29 @@ text_sensor:
     aurora_monitor_id: inverter_monitor
     info_type: FIRMWARE_RELEASE
 
+  - platform: aurora_monitor
+    name: "Global State"
+    aurora_monitor_id: inverter_monitor
+    info_type: GLOBAL_STATE
+
+  - platform: aurora_monitor
+    name: "Inverter State"
+    aurora_monitor_id: inverter_monitor
+    info_type: INVERTER_STATE
+
+  - platform: aurora_monitor
+    name: "DC-DC Channel 1 State"
+    aurora_monitor_id: inverter_monitor
+    info_type: DCDC1_STATE
+
+  - platform: aurora_monitor
+    name: "DC-DC Channel 2 State"
+    aurora_monitor_id: inverter_monitor
+    info_type: DCDC2_STATE
+
+  - platform: aurora_monitor
+    name: "Alarm State"
+    aurora_monitor_id: inverter_monitor
+    info_type: ALARM_STATE
+
 
